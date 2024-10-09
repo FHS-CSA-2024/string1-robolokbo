@@ -287,13 +287,27 @@ public class String1
     public String minCat(String a, String b) {
         String output = "";
         
+        if(a.length() == b.length()){
+            output = a+b;
+        }
+        else if(a.length() > b.length()){
+            output = a.substring(b.length()+1) + b;
+        }
+        else if(a.length() < b.length()){
+            output = a + b.substring(0, a.length());
+        }
+        
+        
+        
+        /*
         if(a.length() > b.length()){
             output = a.substring(b.length() + 1) + b;
         }
         if(a.length() < b.length()){
             output = a + b.substring(a.length() + 1);
         }
-        
+        */
+
         return output;
     }
 
@@ -305,11 +319,8 @@ public class String1
      * withoutX("Hxix") --> "Hxi"
      */
     public String withoutX(String str) {
-        String output = "";
         
-        if(str.substring(0,1).equals("x") && str.substring(str.length()-1).equals("x")){
-            output = str.substring(1, str.length()-1);
-        }
+        String output = "";
         
         return output;
     }

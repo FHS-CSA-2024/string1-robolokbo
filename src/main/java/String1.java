@@ -40,7 +40,7 @@ public class String1
      */
     public String helloName(String name) {
         //return unimplemented;
-        return "\nHello " + name + "!";
+        return "Hello " + name + "!";
     }
 
     /*
@@ -119,11 +119,19 @@ public class String1
     public String firstTwo(String str) {
         String output = "";
         
+        if(str.length() < 2){
+            output = str;
+        }
+        else if(str.length() > 2){
+            output = str.substring(0, 2);
+        }
+        
+        /*
         if(str.length() > 2){
             output = str.substring(0, str.length()/2);
         }
         else output = str;
-        
+        */
         return output;
     }
 
@@ -260,14 +268,14 @@ public class String1
      */
     public String conCat(String a, String b) {
         String output = "";
-        String aLastChar = "";
-        String bFirstChar = "";
-        
-        aLastChar = a.substring(a.length()-1);
-        bFirstChar = b.substring(0,1);
+        String aLastChar = a.substring(a.length()-1);
+        String bFirstChar = b.substring(0, 1);
         
         if(aLastChar.equals(bFirstChar)){
-            output = a + b.substring(1);
+            output = a.substring(0, a.length()-1) + b;
+        }
+        else if(b.equals(" ")){
+            output = a;
         }
         
         

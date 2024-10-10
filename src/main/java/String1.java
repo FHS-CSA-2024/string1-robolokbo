@@ -254,15 +254,13 @@ public class String1
     public String conCat(String a, String b) {
         String output = "";
         String aLastChar = a.substring(a.length()-1);
-        String bFirstChar = b.substring(0, 1);
-        
-        if(aLastChar.equals(bFirstChar)){
-            output = a.substring(0, a.length()-1) + b;
-        }
-        else if(b.equals(" ")){
+        String bFirstChar = b.substring(0,1);
+        if(b.length() == 0){
             output = a;
         }
-        
+        else if(aLastChar.equals(bFirstChar)){
+            output = a.substring(0, a.length()-1) + b;
+        }
         
         return output;
     }

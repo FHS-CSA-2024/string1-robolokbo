@@ -117,22 +117,7 @@ public class String1
      * firstTwo("ab") --> "ab"
      */
     public String firstTwo(String str) {
-        String output = "";
-        
-        if(str.length() < 2){
-            output = str;
-        }
-        else if(str.length() > 2){
-            output = str.substring(0, 2);
-        }
-        
-        /*
-        if(str.length() > 2){
-            output = str.substring(0, str.length()/2);
-        }
-        else output = str;
-        */
-        return output;
+        return str.substring(0, 2);
     }
 
     /*
@@ -327,7 +312,6 @@ public class String1
      * withoutX("Hxix") --> "Hxi"
      */
     public String withoutX(String str) {
-        
         String output = "";
         
         return output;

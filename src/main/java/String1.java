@@ -254,12 +254,14 @@ public class String1
     public String conCat(String a, String b) {
         String output = "";
         String aLastChar = a.substring(a.length()-1);
-        String bFirstChar = b.substring(0,1);
-        if(b.length() == 0){
-            output = a;
+        if(b.length() > 0){
+            String bFirstChar = b.substring(0,1);
+            if(aLastChar.equals(bFirstChar)){
+                output = a.substring(0, a.length()-1) + b;
+            }
         }
-        else if(aLastChar.equals(bFirstChar)){
-            output = a.substring(0, a.length()-1) + b;
+        else{
+            output = a;
         }
         
         return output;
@@ -278,27 +280,10 @@ public class String1
     public String minCat(String a, String b) {
         String output = "";
         
-        if(a.length() == b.length()){
-            output = a+b;
-        }
-        else if(a.length() > b.length()){
-            output = a.substring(b.length()+1) + b;
-        }
-        else if(a.length() < b.length()){
-            output = a + b.substring(0, a.length());
-        }
-        
-        
-        
-        /*
         if(a.length() > b.length()){
-            output = a.substring(b.length() + 1) + b;
+            
         }
-        if(a.length() < b.length()){
-            output = a + b.substring(a.length() + 1);
-        }
-        */
-
+        
         return output;
     }
 

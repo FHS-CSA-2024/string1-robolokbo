@@ -281,6 +281,9 @@ public class String1
         String output = "";
         
         if(a.length() > b.length()){
+            output = a.substring(-b.length()) + b;
+        }
+        else if(a.length() < b.length()){
             
         }
         
@@ -296,6 +299,18 @@ public class String1
      */
     public String withoutX(String str) {
         String output = "";
+        if(str.substring(0,1).equals("x") && str.substring(str.length()-1).equals("x")){
+            output = str.substring(1, str.length()-1);
+        }
+        else if(str.substring(0,1).equals("x")){
+            output = str.substring(1);
+        }
+        else if(str.substring(str.length()-1).equals("x")){
+            output = str.substring(0, str.length()-1);
+        }
+        else{
+            output = str;
+        }
         
         return output;
     }

@@ -64,9 +64,9 @@ public class String1
      */
     public String makeTags(String tag, String word) {
         String output = "";
-        
+
         output = "<" + tag + ">" + word + "</" + tag + ">";
-        
+
         return output;
     }
 
@@ -82,11 +82,11 @@ public class String1
      */
     public String makeOutWord(String out, String word) {
         String outputString = "";
-        
+
         outputString = out.substring(0,2);
         outputString += word;
         outputString += out.substring(2,4);
-        
+
         return outputString;
     }
 
@@ -99,11 +99,11 @@ public class String1
      */
     public String extraEnd(String str) {
         String strString = "";
-        
+
         strString = str.substring(str.length()-2);
         strString += str.substring(str.length()-2);
         strString += str.substring(str.length()-2);
-        
+
         return strString;
     }
 
@@ -128,9 +128,9 @@ public class String1
      */
     public String firstHalf(String str) {
         String strString = "";
-        
+
         strString = str.substring(0, str.length()/2);
-        
+
         return strString;
     }
 
@@ -143,9 +143,9 @@ public class String1
      */
     public String withoutEnd(String str) {
         String strString = "";
-        
+
         strString = str.substring(1,str.length()-1);
-        
+
         return strString;
     }
 
@@ -159,12 +159,12 @@ public class String1
      */
     public String comboString(String a, String b) {
         String outputString = "";
-        
+
         if (a.length() > b.length()){
             outputString = b + a + b;
         }
         else outputString = a + b + a;
-        
+
         return outputString;
     }
 
@@ -178,11 +178,11 @@ public class String1
     public String middleThree(String str) {
         String strString= "";
         int middle;
-        
+
         middle = str.length()/2;
-        
+
         strString = str.substring(middle - 1, middle) + str.substring(middle, middle + 2);
-        
+
         return strString;
     }
 
@@ -195,12 +195,12 @@ public class String1
      */
     public String extraFront(String str) {
         String outputStr = "";
-        
+
         if(str.length() > 2){
             outputStr = str.substring(0,+ 2) + str.substring(0,+2) + str.substring(0,+ 2);
         }
         else outputStr = str + str + str;
-        
+
         return outputStr;
     }
 
@@ -213,9 +213,9 @@ public class String1
      */
     public String left2(String str) {
         String output = "";
-        
+
         output = str.substring(2) + str.substring(0,2); 
-        
+
         return output;
     }
 
@@ -229,7 +229,7 @@ public class String1
      */
     public boolean hasBad(String str) {
         String strString = "";
-        
+
         //&& str.substring(0,1).equals("bad")
         if(str.length() >= 3 && str.substring(0,3).equals("bad")){
             return true;
@@ -240,7 +240,7 @@ public class String1
             }
             else return false;
         }
-        
+
     }
 
     /*
@@ -252,18 +252,25 @@ public class String1
      * conCat("abc", "") --> "abc"
      */
     public String conCat(String a, String b) {
+        System.out.print(">");
+
         String output = "";
-        String aLastChar = a.substring(a.length()-1);
+        String aLast = a.substring(a.length()-1);
         if(b.length() > 0){
-            String bFirstChar = b.substring(0,1);
-            if(aLastChar.equals(bFirstChar)){
-                output = a.substring(0, a.length()-1) + b;
-            }
+            String bFirst = b.substring(0,1);
+            if(bFirst.length() > 0){
+                if(aLast.equals(bFirst)){
+                    output = a + b.substring(1);
+                }
+                else{
+                    output = a + b;
+                }
+            }   
         }
         else{
             output = a;
         }
-        
+
         return output;
     }
 
@@ -279,14 +286,8 @@ public class String1
      */
     public String minCat(String a, String b) {
         String output = "";
-        
-        if(a.length() > b.length()){
-            output = a.substring(-b.length()) + b;
-        }
-        else if(a.length() < b.length()){
-            
-        }
-        
+
+
         return output;
     }
 
@@ -311,7 +312,7 @@ public class String1
         else{
             output = str;
         }
-        
+
         return output;
     }
 
@@ -326,14 +327,14 @@ public class String1
      */
     public String deFront(String str) {
         String output = "";
-        
+
         if(str.substring(0,1).equals("a")){
             if(str.substring(1,2).equals("b")){
                 output = str.substring(2);
             }
         }
         else output = str;
-        
+
         return output;
     }
 

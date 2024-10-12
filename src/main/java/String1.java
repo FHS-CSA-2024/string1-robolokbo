@@ -333,13 +333,15 @@ public class String1
         String output = "";
 
         if(str.substring(0,1).equals("a")){
-            if(str.substring(1,2).equals("b")){
-                output = str.substring(2);
-            }
+            output = "a" + str.substring(2);
         }
-        else output = str;
+        else if(str.substring(0,2).equals("ab")){
+            output = "ab" + str.substring(3);
+        }
+        else{
+            output = str.substring(2);
+        }
 
         return output;
     }
-
 }

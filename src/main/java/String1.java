@@ -252,8 +252,6 @@ public class String1
      * conCat("abc", "") --> "abc"
      */
     public String conCat(String a, String b) {
-        System.out.print(">");
-
         String output = "";
         String aLast = a.substring(a.length()-1);
         if(b.length() > 0){
@@ -287,6 +285,12 @@ public class String1
     public String minCat(String a, String b) {
         String output = "";
 
+        if(a.length() > b.length()){
+            output = a.substring(a.length() - b.length()) + b;
+        }
+        else if(a.length() < b.length()){
+            output = a + b.substring(b.length() - a.length());
+        }
 
         return output;
     }

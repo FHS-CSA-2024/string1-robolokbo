@@ -1,347 +1,380 @@
 package src.main.java;
 
-public class String1
-{
-    private String unimplemented = "UNIMPLEMENTED CODE";
-
-    public static void main(String[] args){
-        String1 s = new String1();
-        System.out.println(s.helloName("Bob"));
-        System.out.println(s.makeAbba("Hi", "Bye"));
-        System.out.println(s.makeTags("i", "Yay"));
-        System.out.println(s.makeOutWord("<<>>", "Yay"));
-        System.out.println(s.extraEnd("Hello"));
-        System.out.println(s.firstTwo("Hello"));
-        System.out.println(s.firstHalf("WooHoo"));
-        System.out.println(s.withoutEnd("Hello"));
-        System.out.println(s.comboString("hi", "Hello"));
-        System.out.println(s.middleThree("Candy"));
-        System.out.println(s.extraFront("Hello"));
-        System.out.println(s.left2("Hello"));
-        System.out.println(s.hasBad("badxx"));
-        System.out.println(s.conCat("abc", "cat"));
-        System.out.println(s.minCat("Hello", "Hi"));
-        System.out.println(s.withoutX("xHix"));
-        System.out.println(s.deFront("abHello"));
-    }
-
-    public String1()
-    {
-
-    }
-
-    //ONLY EDIT BELOW HERE-------------------------------------------------------------------------
-
-    /*
-     * Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
-     *  helloName("Bob") --> "Hello Bob!"
-     *  helloName("Alice") --> "Hello Alice!"
-     *  helloName("X") --> "Hello X!"
+public class Array1 {
+    /**
+     * Return true if the first or last element of the array is 6.
      */
-    public String helloName(String name) {
-        //return unimplemented;
-        return "Hello " + name + "!";
-    }
+    public boolean firstLast6(int[] nums) {
+        boolean output = false;
 
-    /*
-     * Given two strings, a and b, return the result of putting them together in the order abba, 
-     * e.g. "Hi" and "Bye" returns "HiByeByeHi".
-     * makeAbba("Hi", "Bye") --> "HiByeByeHi"
-     * makeAbba("Yo", "Alice") --> "YoAliceAliceYo"
-     * makeAbba("What", "Up") --> "WhatUpUpWhat"
-     */
-    public String makeAbba(String a, String b) {
-        return a + b + b + a;
-    }
-
-    /*
-     * The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. 
-     * In this example, the "i" tag makes <i> and </i> which surround the word "Yay". 
-     * Given tag and word strings, create the HTML string with tags around the word, e.g. "<i>Yay</i>".
-     * makeTags("i", "Yay") --> "<i>Yay</i>"
-     * makeTags("i", "Hello") --> "<i>Hello</i>"
-     * makeTags("cite", "Yay") --> "<cite>Yay</cite>"
-     */
-    public String makeTags(String tag, String word) {
-        String output = "";
-
-        output = "<" + tag + ">" + word + "</" + tag + ">";
-
-        return output;
-    }
-
-    /*
-     * Given an "out" string length 4, such as "<<>>", and a word, 
-     *      return a new string where the word is in the middle of the out string, 
-     *      e.g. "<<word>>". 
-     * Note: use str.substring(i, j) to extract the String starting at index i and going up to but 
-     * not including index j.
-     * makeOutWord("<<>>", "Yay") --> "<<Yay>>"
-     * makeOutWord("<<>>", "WooHoo") --> "<<WooHoo>>"
-     * makeOutWord("[[]]", "word") --> "[[word]]"
-     */
-    public String makeOutWord(String out, String word) {
-        String outputString = "";
-
-        outputString = out.substring(0,2);
-        outputString += word;
-        outputString += out.substring(2,4);
-
-        return outputString;
-    }
-
-    /*
-     * Given a string, return a new string made of 3 copies of the last 2 chars of the original string. 
-     * The string length will be at least 2.
-     * extraEnd("Hello") --> "lololo"
-     * extraEnd("ab") --> "ababab"
-     * extraEnd("Hi") --> "HiHiHi"
-     */
-    public String extraEnd(String str) {
-        String strString = "";
-
-        strString = str.substring(str.length()-2);
-        strString += str.substring(str.length()-2);
-        strString += str.substring(str.length()-2);
-
-        return strString;
-    }
-
-    /*
-     * Given a string, return the string made of its first two chars, so the String "Hello" yields "He". 
-     * If the string is shorter than length 2, return whatever there is, 
-     * so "X" yields "X", and the empty string "" yields the empty string "". 
-     * Note that str.length() returns the length of a string.
-     * firstTwo("Hello") --> "He"
-     * firstTwo("abcdefg") --> "ab"
-     * firstTwo("ab") --> "ab"
-     */
-    public String firstTwo(String str) {
-        return str.substring(0, 2);
-    }
-
-    /*
-     * Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".]
-     * firstHalf("WooHoo") --> "Woo"
-     * firstHalf("HelloThere") --> "Hello"
-     * firstHalf("abcdef") --> "abc"
-     */
-    public String firstHalf(String str) {
-        String strString = "";
-
-        strString = str.substring(0, str.length()/2);
-
-        return strString;
-    }
-
-    /*
-     * Given a string, return a version without the first and last char, so "Hello" yields "ell". 
-     * The string length will be at least 2.
-     * withoutEnd("Hello") --> "ell"
-     * withoutEnd("java") --> "av"
-     * withoutEnd("coding") --> "odin"
-     */
-    public String withoutEnd(String str) {
-        String strString = "";
-
-        strString = str.substring(1,str.length()-1);
-
-        return strString;
-    }
-
-    /*
-     * Given 2 strings, a and b, return a string of the form short+long+short, with the 
-     * shorter string on the outside and the longer string on the inside. 
-     * The strings will not be the same length, but they may be empty (length 0).
-     * comboString("hi", "Hello") --> "hiHellohi"
-     * comboString("Hello", "hi") --> "hiHellohi"
-     * comboString("aaa", "b") --> "baaab"
-     */
-    public String comboString(String a, String b) {
-        String outputString = "";
-
-        if (a.length() > b.length()){
-            outputString = b + a + b;
+        if(nums[0] == 6 || nums[nums.length -1] == 6){
+            output = true;
         }
-        else outputString = a + b + a;
 
-        return outputString;
+        return output; // Placeholder return
     }
 
-    /*
-     * Given a string of odd length, return the string length 3 from its middle, so "Candy" yields "and". 
-     * The string length will be at least 3.
-     * middleThree("Candy") --> "and"
-     * middleThree("and") --> "and"
-     * middleThree("solving") --> "lvi"
+    /**
+     * Return true if the arrays have the same first or last element.
      */
-    public String middleThree(String str) {
-        String strString= "";
-        int middle;
+    public boolean commonEnd(int[] a, int[] b) {
+        boolean output = false;
 
-        middle = str.length()/2;
-
-        strString = str.substring(middle - 1, middle) + str.substring(middle, middle + 2);
-
-        return strString;
-    }
-
-    /*
-     * Given a string, return a new string made of 3 copies of the first 2 chars of the original string. 
-     * The string may be any length. If there are fewer than 2 chars, use whatever is there.
-     * extraFront("Hello") --> "HeHeHe"
-     * extraFront("ab") --> "ababab"
-     * extraFront("H") --> "HHH"
-     */
-    public String extraFront(String str) {
-        String outputStr = "";
-
-        if(str.length() > 2){
-            outputStr = str.substring(0,+ 2) + str.substring(0,+2) + str.substring(0,+ 2);
+        if(a[0] == b[0] || a[a.length -1] == b[b.length -1]){
+            output = true;
         }
-        else outputStr = str + str + str;
 
-        return outputStr;
+        return output; // Placeholder return
     }
 
-    /*
-     * Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end. 
-     * The string length will be at least 2.
-     * left2("Hello") --> "lloHe"
-     * left2("java") --> "vaja"
-     * left2("Hi") --> "Hi"
+    /**
+     * Return the array (size 3) in reverse order.
      */
-    public String left2(String str) {
-        String output = "";
-
-        output = str.substring(2) + str.substring(0,2); 
-
-        return output;
+    public int[] reverse3(int[] nums) {
+        int[] output = {nums[2], nums[1], nums[0]};
+        return output; // Placeholder return
     }
 
-    /*
-     * Given a string, return true if "bad" appears starting at index 0 or 1 in the string, 
-     * such as with "badxxx" or "xbadxx" but not "xxbadxx". The string may be any length, including 0. 
-     * Note: use .equals() to compare 2 strings.
-     * hasBad("badxx") --> true
-     * hasBad("xbadxx") --> true
-     * hasBad("xxbadxx") --> false
+    /**
+     * Given 2 arrays of length 3, return a new array of the middle elements of the input arrays.
      */
-    public boolean hasBad(String str) {
-        String strString = "";
+    public int[] middleWay(int[] a, int[] b) {
+        int[] output = {a[1], b[1]};
+        return output; // Placeholder return
+    }
 
-        //&& str.substring(0,1).equals("bad")
-        if(str.length() >= 3 && str.substring(0,3).equals("bad")){
-            return true;
-        } 
-        else{
-            if(str.length() >= 3 && str.substring(1,4).equals("bad")){
-                return true;
+    /**
+     * Return true if the array (size 2) does not contain a 2 next to a 3.
+     */
+    public boolean no23(int[] nums) {
+        boolean output = true;
+
+        if(nums[0] == 2 || nums[1] == 2){
+            if(nums[0] == 3 || nums[1] == 3){
+                output = false;
             }
-            else return false;
         }
 
+        return output; // Placeholder return
     }
 
-    /*
-     * Given two strings, append them together (known as "concatenation") and return the result. 
-     * However, if the concatenation creates a double-char, then omit one of the chars, 
-     *     so "abc" and "cat" yields "abcat".
-     * conCat("abc", "cat") --> "abcat"
-     * conCat("dog", "cat") --> "dogcat"
-     * conCat("abc", "") --> "abc"
+    /**
+     * Given an int array of size 3, if there is a 2 followed by a 3, change the 3 to a 0.
      */
-    public String conCat(String a, String b) {
-        String output = "";
-        String aLast = a.substring(a.length()-1);
-        if(b.length() > 0){
-            String bFirst = b.substring(0,1);
-            if(bFirst.length() > 0){
-                if(aLast.equals(bFirst)){
-                    output = a + b.substring(1);
-                }
-                else{
-                    output = a + b;
-                }
-            }   
+    public int[] fix23(int[] nums) {
+        int[] output = nums;
+
+        if(nums[0] == 2 && nums[1] == 3){
+            output[1] = 0;
+        }
+        else if(nums[1] == 2 && nums[2] == 3){
+            output[2] = 0;
+        }
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Given an array with an even length, return a new array containing the 2 middle elements
+     */
+    public int[] makeMiddle(int[] nums) {
+        int[] output = {nums[(nums.length/2) -1], nums[nums.length/2]};
+        return output; // Placeholder return
+    }
+
+    /**
+     * Given an array with an odd length, return a new array of the middle three elements of the input array.
+     */
+    public int[] midThree(int[] nums) {
+        int[] output = new int[3];
+        
+        output[0] = nums[(nums.length -2) / 2];
+        output[1] = nums[ nums.length     / 2];
+        output[2] = nums[(nums.length +1) / 2];
+        
+        return output; // Placeholder return
+    }
+
+    /**
+     * 1's are unlucky if they are followed by a 3.
+     * Return true if the array contains an unlucky 1 in the first 2 or last 2 positions
+     */
+    public boolean unlucky1(int[] nums) {
+        boolean output = false;
+
+        for(int i = 0; i < 2; i++){
+            if(nums[i] == 1 && nums[i + 1] == 3){
+                output = true;
+            }
+        }
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Return true if the array's first and last elements are the same.
+     */
+    public boolean sameFirstLast(int[] nums) {
+        boolean output = false;
+
+        if(nums[0] == nums[nums.length -1]){
+            output = true;
+        }
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Return the sum of the first three elements of the array.
+     */
+    public int sum3(int[] nums) {
+        return nums[0] + nums[1] + nums[2]; // Placeholder return
+    }
+
+    /**
+     * Given an array of ints length 3, figure out which is larger, the first or last element in the array, 
+     * and set all the other elements to be that value. Return the changed array.
+     */
+    public int[] maxEnd3(int[] nums) {
+        int[] output = new int[3];
+        
+        if(nums[0] > nums[nums.length - 1]){
+            for(int i = 0; i < nums.length; i++){
+                output[i] = nums[0];
+            }
+        }
+        else if(nums[0] < nums[nums.length - 1]){
+            for(int i = 0; i < nums.length; i++){
+                output[i] = nums[nums.length - 1];
+            }
         }
         else{
-            output = a;
+            for(int i = 0; i < nums.length; i++){
+                output[i] = 0;
+            }
         }
-
-        return output;
+        
+        return output; // Placeholder return
     }
 
-    /*
-     *Given two strings, append them together (known as "concatenation") and return the result. 
-     *However, if the strings are different lengths, omit chars from the longer string 
-     *    so it is the same length as the shorter string. 
-     *So "Hello" and "Hi" yield "loHi". 
-     *The strings may be any length.
-     *minCat("Hello", "Hi") --> "loHi"
-     *minCat("Hello", "java") --> "ellojava"
-     *minCat("java", "Hello") --> "javaello"
+    /**
+     * Return a new array with the first and last elements of the input array.
      */
-    public String minCat(String a, String b) {
-        String output = "";
-
-        if(a.length() > b.length()){
-            output = a.substring(a.length() - b.length()) + b;
-        }
-        else if(a.length() < b.length()){
-            output = a + b.substring(b.length() - a.length());
-        }
-
-        return output;
+    public int[] makeEnds(int[] nums) {
+        int[] output = {nums[0], nums[nums.length -1]};
+        return output; // Placeholder return
     }
 
-    /*
-     * Given a string, if the first or last chars are 'x', return the string without those 'x' chars, 
-     * and otherwise return the string unchanged.
-     * withoutX("xHix") --> "Hi"
-     * withoutX("xHi") --> "Hi"
-     * withoutX("Hxix") --> "Hxi"
+    /**
+     * Given an int array, return a new array with double the length where its last element 
+     * is the same as the original array, and all the other elements are 0. 
+     * The original array will be length 1 or more. 
+     * Note: by default, a new int array contains all 0's.
      */
-    public String withoutX(String str) {
-        String output = "";
-        if(str.substring(0,1).equals("x") && str.substring(str.length()-1).equals("x")){
-            output = str.substring(1, str.length()-1);
+    public int[] makeLast(int[] nums) {
+        int[] output = new int[nums.length * 2];
+        
+        output[(nums.length * 2) -1] = nums[(nums.length * 2) -1];
+        
+        return output; // Placeholder return
+    }
+
+    /**
+     * Return the number of arrays where the first element is 1.
+     */
+    public int start1(int[] a, int[] b) {
+        int count = 0;
+        if(a.length > 0 && b.length > 0){
+            if(a[0] == 1){
+                count ++;
+            }
+            if(b[0] == 1){
+                count ++;
+            }
         }
-        else if(str.substring(0,1).equals("x")){
-            output = str.substring(1);
+
+        return count; // Placeholder return
+    }
+
+    /**
+     * Return a new array consisting of the elements from two arrays combined.
+     * the return should be as if a and b are concatinated
+     */
+    public int[] plusTwo(int[] a, int[] b) {
+        int abLen = a.length + b.length;
+        int[] output = new int[abLen];
+
+        for(int c = 0; c < a.length; c++){
+            output[c] = a[c];
         }
-        else if(str.substring(str.length()-1).equals("x")){
-            output = str.substring(0, str.length()-1);
+        for(int c = 0; c < b.length; c++){
+            output[c + a.length] = b[c];
+        }
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Return the maximum of the first, middle, or last element of the array.
+     */
+    public int maxTriple(int[] nums) {
+        int output = 0;
+        int first = nums[0];
+        int middle = nums[nums.length/2];
+        int last = nums[nums.length -1];
+
+        if(first > last && first > middle){
+            output = first;
+        }
+        else if(middle > last && middle > first){
+            output = middle;
+        }
+        else if(last > first && last > middle){
+            output = last;
+        }
+        if(nums.length < 3){
+            output = nums[0];
+        }
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Given 2 int arrays, a and b, return a new array length 2 containing, as much as will fit, 
+     * the elements from a followed by the elements from b. 
+     * The arrays may be any length, including 0, but there will be 2 or more elements available between the 2 arrays.
+     */
+    public int[] make2(int[] a, int[] b) {
+        int[] output = new int[2];
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Return an array containing the first three digits of Pi: [3, 1, 4].
+     */
+    public int[] makePi() {
+        int[] output = {3, 1, 4};
+        return output; // Placeholder return
+    }
+
+    /**
+     * Return a new array with elements rotated left by 3 positions.
+     * So {1, 2 ,3} returns {2, 3, 1}
+     */
+    public int[] rotateLeft3(int[] nums) {
+        return new int[0]; // Placeholder return
+    }
+
+    /**
+     * Given an array of ints, return the sum of the first 2 elements in the array. 
+     * If the array length is less than 2, just sum up the elements that exist, returning 0 if the array is length 0.
+     */
+    public int sum2(int[] nums) {
+        int output = 0;
+
+        if(nums.length >= 2){
+            output = nums[0] + nums[1];
+        }
+        if(nums.length == 1){
+            output = nums[0];
+        }
+        if(nums.length == 0){
+            output = 0;
+        }
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Return true if the array contains a 2 or a 3.
+     */
+    public boolean has23(int[] nums) {
+        boolean output = false;
+
+        for(int lcv = 0; lcv < nums.length; lcv++){
+            if(nums[lcv] == 2 || nums[lcv] == 3){
+                output = true;
+            }
+        }
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Return true if the array contains two consecutive 2s or 3s.
+     */
+    public boolean double23(int[] nums) {
+        boolean output = false;
+
+        for(int c = 0; c < nums.length - 1; c++){
+            if(nums[c] == nums[c + 1] && nums[c] == 2){
+                output = true;
+            }
+        }
+        for(int c = 0; c < nums.length - 1; c++){
+            if(nums[c] == nums[c + 1] && nums[c] == 3){
+                output = true;
+            }
+        }
+
+        return output; // Placeholder return
+    }
+
+    /**
+     * Start with 2 int arrays, a and b, each length 2. 
+     * Consider the sum of the values in each array. Return the array which has the largest sum. 
+     * In event of a tie, return a.
+     */
+    public int[] biggerTwo(int[] a, int[] b) {
+        if(a[0] + a[1] > b[0] + b[1]){
+            return a;
+        }
+        else if(a[0] + a[1] < b[0] + b[1]){
+            return b;
+        }
+        return new int[0];
+    }
+
+    /**
+     * Return a new array with the first and last elements swapped.
+     */
+    public int[] swapEnds(int[] nums) {
+        int[] output = nums;
+        int first = nums[0];
+        int last = nums[nums.length -1];
+        
+        output[0] = last;
+        output[output.length - 1] = first;
+        
+        return output; // Placeholder return
+    }
+
+    /**
+     * Given an int array of any length, return a new array of its first 2 elements. 
+     * If the array is smaller than length 2, use whatever elements are present.
+     */
+    public int[] frontPiece(int[] nums) {
+        int[] output = new int[2];
+        
+        if(nums.length > 2){
+            output[0] = nums[0];
+            output[1] = nums[1];
         }
         else{
-            output = str;
+            output = nums;
         }
-
-        return output;
+        
+        return output; // Placeholder return
     }
 
-    /*
-     * Given a string, return a version without the first 2 chars. 
-     * Except keep the first char if it is 'a' and keep the second char if it is 'b'. 
-     * The string may be any length. 
-     * Harder than it looks.
-     * deFront("Hello") --> "llo"
-     * deFront("java") --> "va"
-     * deFront("away") --> "aay"
+    /**
+     * Given 2 int arrays, a and b, of any length, return a new array with the first element of each array. 
+     * If either array is length 0, ignore that array.
      */
-    public String deFront(String str) {
-        String output = "";
+    public int[] front11(int[] a, int[] b) {
+        int[] output = new int[0];
 
-        if(str.substring(0,1).equals("a")){
-            output = "a" + str.substring(2);
-        }
-        else if(str.substring(0,2).equals("ab")){
-            output = "ab" + str.substring(3);
-        }
-        else{
-            output = str.substring(2);
-        }
-
-        return output;
+        return output; // Placeholder return
     }
 }
